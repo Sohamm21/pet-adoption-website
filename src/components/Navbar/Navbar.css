@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.pet-adoption-navbar {
+    background-color: green;
+    display: flex;
+    align-items: center;
+}
+
+.pet-adoption-navbar img {
+    width: 60px;
+    height: 60px;
+}
+
+.pet-adoption-navbar ul {
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.pet-adoption-navbar li {
+    list-style: none;
+}
+
+.pet-adoption-navbar li a {
+    color: inherit;
+    text-decoration: none; 
+}
+
+.pet-adoption-navbar li a:hover {
+    background-color: red;
+    border-radius: 15px;
+    padding: 10px;
+}
