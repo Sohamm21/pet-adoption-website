@@ -6,7 +6,12 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <nav className="pet-adoption-navbar">
-      <img src="https://res.cloudinary.com/dyrv985gb/image/upload/v1712542121/images/pet-adoption-logo.png" alt="pet-adoption-logo" />
+      <NavLink to="/"> 
+        <img
+          src="https://res.cloudinary.com/dyrv985gb/image/upload/v1712542121/images/pet-adoption-logo.png"
+          alt="pet-adoption-logo"
+        />
+      </NavLink>
       <ul>
         <li>
           <NavLink to="/">Home</NavLink>
