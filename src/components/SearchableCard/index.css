@@ -1,0 +1,41 @@
+.searchableCardContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .searchableCardsList {
+    display: flex;
+    list-style: none;
+  }
+  
+  .searchableCard {
+    text-align: center;
+    margin: 0 10px;
+    border: 1px solid #d2d1d3;
+    box-shadow: 0 4px 4px rgba(0,0,0,.05);
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .searchableCard img {
+    max-width: 200px;
+  }
+  
+  .searchableCard span {
+    display: block;
+  }
+
+  .searchableCard a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .searchableCard:hover {
+    background-color: #f0f0f0;
+    border: 3px solid rgb(139, 111, 57);
+    font-weight: bold;
+  }
+  

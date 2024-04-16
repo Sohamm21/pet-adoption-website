@@ -13,7 +13,10 @@ const petSchema = new mongoose.Schema({
   age: Number,
   gender: String,
   description: String,
-  photos: [String],
+  photos: {
+    type: [String],
+    required: true,
+  },
   dateAdded: {
     type: Date,
     default: Date.now,

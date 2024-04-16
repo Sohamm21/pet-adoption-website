@@ -5,21 +5,36 @@ const getPets = async (req, res) => {
     const pets = await Pet.find();
     res.status(200).json(pets);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ msg: "Internal Server Error" });
   }
 };
+
+const getPetById = async (req, res) => {
+  try {
+    const petId = req.params.id;
+    const pet = await Pet.findById(petId);
+    if (!pet) {
+      return res.status(404).json({ msg: "Pet not found" });
+    }
+    res.status(200).json(pet);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Internal Server Error" });
+  }
+};
+
 
 const createPet = async (req, res) => {
   try {
-    const { name, breed, age } = req.body;
-    const pet = new Pet({ name, breed, age });
+    const { name, species, breed, age, gender, description, photos, location, ownerId } = req.body;
+    const pet = new Pet({ name, species, breed, age, gender, description, photos, location, ownerId });
     await pet.save();
     res.status(201).json(pet);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ msg: "Internal Server Error" });
   }
 };
 
-module.exports = { getPets, createPet };
+module.exports = { getPets, createPet, getPetById  };

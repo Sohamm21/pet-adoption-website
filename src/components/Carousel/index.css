@@ -1,0 +1,46 @@
+.carousel-home {
+    height: 670px;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .carousel-home img {
+    opacity: 0.6;
+    height: 670px;
+  }
+  
+  .main-carousel .carousel-background {
+    border-bottom: 10px solid rgb(139, 111, 57);
+    position: relative;
+    z-index: 0;
+  }
+  
+  .main-carousel .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 2vh;
+    font-weight: bold;
+    font-size: 7vh;
+    z-index: 2;
+    color: white;
+  }
+  
+  .overlay-text span {
+    color: rgb(201, 169, 105);
+    font-size: 7.5vh;
+  }
+  
+  /* Media query for smaller screens */
+  @media only screen and (max-width: 768px) {
+    .main-carousel .overlay-text {
+      font-size: 4vh;
+      width: 100%; 
+      text-align: center;
+    }
+    .overlay-text span {
+      color: rgb(155, 127, 72);
+      font-size: 4.5vh;
+    }
+    .carousel-home {
+      height: 260px;
+    }
+  }

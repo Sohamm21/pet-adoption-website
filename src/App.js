@@ -3,6 +3,8 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import Adopt from './pages/Adopt.jsx';
+import PetDetails from './pages/PetDetails.jsx';
+import React, {useState} from 'react';
 
 function App() {
   const router = createBrowserRouter([
@@ -14,10 +16,14 @@ function App() {
       path: "/adopt",
       element: <><Navbar /><Adopt /></>
     },
+    {
+      path: "/pet/:id",
+      element: <><Navbar /><PetDetails /></>
+    }
   ])
   return (
     <>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </>
   );
 }

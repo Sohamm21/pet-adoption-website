@@ -1,0 +1,19 @@
+.pet-adopt-container {
+  display: flex;
+}
+
+.pet-adopt-aside {
+  flex-basis: 25%;
+}
+
+.pet-adopt-section {
+  flex-basis: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.pet-details-info {
+  align-items: center;
+  text-align: center;
+}

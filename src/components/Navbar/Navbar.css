@@ -4,9 +4,10 @@
 }
 
 .pet-adoption-navbar {
-    background-color: green;
+    /* background-color: green; */
     display: flex;
     align-items: center;
+    border-bottom: 10px solid rgb(139, 111, 57);
 }
 
 .pet-adoption-navbar img {
@@ -23,6 +24,7 @@
 
 .pet-adoption-navbar li {
     list-style: none;
+    margin-top: 18px;
 }
 
 .pet-adoption-navbar li a {
@@ -31,7 +33,8 @@
 }
 
 .pet-adoption-navbar li a:hover {
-    background-color: red;
+    background-color: rgb(139, 111, 57);
     border-radius: 15px;
     padding: 10px;
+    color: white;
 }

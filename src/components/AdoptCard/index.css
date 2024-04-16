@@ -1,0 +1,39 @@
+.pet-adopt-card {
+    margin: 10px; 
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d2d1d3;
+    box-shadow: 0 4px 4px rgba(0,0,0,.05);
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .pet-adopt-card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 240px;
+    height: 280px; 
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .pet-adopt-card-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(139, 111, 57);
+  }
+
+  .pet-adopt-card-other-details {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pet-adopt-card:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(0,0,0,.1);
+  }
+  

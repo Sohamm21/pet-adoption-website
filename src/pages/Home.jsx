@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Carousel from "../components/Carousel";
+import SearchableCard from "../components/SearchableCard/index.jsx";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <Carousel />
+      <SearchableCard />
+    </>
+  );
+};
 
-export default Home
+export default Home;
