@@ -8,7 +8,7 @@ const Rehome = () => {
     species: "",
     breed: "",
     age: "",
-    gender: "", // Change to gender instead of selectedGender
+    gender: "",
     description: "",
     images: [],
     location: "",
@@ -45,9 +45,24 @@ const Rehome = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
+    const imageData = new FormData();
+    imageData.append("file", formData?.images[0]);
+    imageData.append("upload_preset", "pet-adoption");
+    imageData.append("cloud_name", "dyrv985gb");
+    fetch("https://api.cloudinary.com/v1_1/dyrv985gb/image/upload", {
+      method: "post",
+      body: imageData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     console.log(formData);
   };
+  
 
   return (
     <div className="rehome-pet-container">
@@ -100,7 +115,7 @@ const Rehome = () => {
             labelText="Select gender"
             options={genderOptions}
             containsImage={false}
-            selectedOption={formData.gender} // Pass gender as selectedOption
+            selectedOption={formData.gender}
             onChange={handleGenderChange}
           />
           <InputText
