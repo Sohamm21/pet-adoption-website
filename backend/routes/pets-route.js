@@ -4,6 +4,6 @@ const petsController = require("../controllers/pet-controller");
 
 router.get("/pets", petsController.getPets);
 router.post("/pets", petsController.createPet);
-router.get("/pets/:id", petsController.getPetById); // Corrected route for getting a pet by its ID
+router.get("/pets/:id", petsController.getPetById);
 
 module.exports = router;

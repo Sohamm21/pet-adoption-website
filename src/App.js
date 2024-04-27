@@ -5,6 +5,7 @@ import Home from './pages/Home.jsx';
 import Adopt from './pages/Adopt.jsx';
 import PetDetails from './pages/PetDetails.jsx';
 import React, {useState} from 'react';
+import Rehome from './pages/Rehome.jsx';
 
 function App() {
   const router = createBrowserRouter([
@@ -19,6 +20,10 @@ function App() {
     {
       path: "/pet/:id",
       element: <><Navbar /><PetDetails /></>
+    },
+    {
+      path: "/rehome",
+      element: <><Navbar /><Rehome /></>
     }
   ])
   return (
