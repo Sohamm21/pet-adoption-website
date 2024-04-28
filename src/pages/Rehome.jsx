@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import InputText from "../components/InputText";
 import SelectableDiv from "../components/SelectableDiv";
+import axios from "axios";
 
 const Rehome = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +11,7 @@ const Rehome = () => {
     age: "",
     gender: "",
     description: "",
-    images: [],
+    photos: [],
     location: "",
   });
 
@@ -31,7 +32,7 @@ const Rehome = () => {
     const files = Array.from(e.target.files);
     setFormData({
       ...formData,
-      images: files,
+      photos: files,
     });
   };
 
@@ -41,28 +42,64 @@ const Rehome = () => {
       gender: gender,
     });
   };
-  
-  
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const imageData = new FormData();
-    imageData.append("file", formData?.images[0]);
-    imageData.append("upload_preset", "pet-adoption");
-    imageData.append("cloud_name", "dyrv985gb");
-    fetch("https://api.cloudinary.com/v1_1/dyrv985gb/image/upload", {
-      method: "post",
-      body: imageData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    console.log(formData);
-  };
   
+    if (formData.photos.length === 0) {
+      try {
+        const response = await axios.post("http://localhost:5000/api/pets", formData);
+        console.log(response);
+      } catch (error) {
+        console.error("Error uploading the data:", error);
+      }
+      return;
+    }
+  
+    const cloudinaryURLs = [];
+  
+    try {
+      for (const image of formData.photos) {
+        const imageData = new FormData();
+        imageData.append("file", image);
+        imageData.append("upload_preset", "pet-adoption");
+        imageData.append("cloud_name", "dyrv985gb");
+  
+        const response = await axios.post("https://api.cloudinary.com/v1_1/dyrv985gb/image/upload", imageData);
+        cloudinaryURLs.push(response.data.url);
+      }
+  
+      setFormData({
+        ...formData,
+        photos: cloudinaryURLs,
+      });
+  
+      const petData = {
+        ...formData,
+        photos: cloudinaryURLs,
+      };
+  
+      try {
+        const response = await axios.post("http://localhost:5000/api/pets", petData);
+        console.log(response);
+      } catch (error) {
+        console.error("Error uploading the data:", error);
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+
+    setFormData({
+      name: "",
+      species: "",
+      breed: "",
+      age: "",
+      gender: "",
+      description: "",
+      photos: [],
+      location: "",
+    });
+  };
 
   return (
     <div className="rehome-pet-container">
