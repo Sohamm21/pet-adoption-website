@@ -3,6 +3,7 @@ import axios from "axios";
 import "./index.css";
 import AdoptCard from "../components/AdoptCard";
 import Skeleton from "@mui/material/Skeleton";
+import SideFilter from "../components/SideFilter";
 
 const Adopt = () => {
   const [data, setData] = useState([]);
@@ -14,9 +15,10 @@ const Adopt = () => {
       const response = await axios.get("http://localhost:5000/api/pets");
       setData(response.data);
       setLoading(false);
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      setError(err.message);
       setLoading(false);
+      console.error(error);
     }
   };
 
@@ -26,7 +28,9 @@ const Adopt = () => {
 
   return (
     <div className="pet-adopt-container">
-      <aside className="pet-adopt-aside">This is filter area</aside>
+      <aside className="pet-adopt-aside">
+        <SideFilter />
+      </aside>
       <section className="pet-adopt-section">
         {loading ? (
           <Skeleton
