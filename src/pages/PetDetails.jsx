@@ -5,6 +5,7 @@ const PetDetails = () => {
   const [petDetail, setPetDetail] = useState(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const storedData = localStorage.getItem("petDetail");
     if (storedData) {
       setPetDetail(JSON.parse(storedData));

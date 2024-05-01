@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputText from "../components/InputText";
 import SelectableDiv from "../components/SelectableDiv";
 import axios from "axios";
 
 const Rehome = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     species: "",

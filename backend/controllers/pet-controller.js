@@ -1,15 +1,36 @@
 const Pet = require("../models/pet");
 
+// const getPets = async (req, res) => {
+//   try {
+//     const queryParams = req.query;
+//     const pets = await Pet.find(queryParams);
+//     res.status(200).json(pets);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ msg: "Internal Server Error" });
+//   }
+// };
+
 const getPets = async (req, res) => {
   try {
     const queryParams = req.query;
-    const pets = await Pet.find(queryParams);
+
+    let filter = {}; 
+
+    if (queryParams.species === "Others") {
+      filter = { species: { $nin: ["Dog", "Cat"] } };
+    } else {
+      filter = queryParams;
+    }
+
+    const pets = await Pet.find(filter);
     res.status(200).json(pets);
   } catch (error) {
     console.error(error);
     res.status(500).json({ msg: "Internal Server Error" });
   }
 };
+
 
 
 const getPetById = async (req, res) => {

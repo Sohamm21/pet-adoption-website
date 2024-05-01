@@ -1,5 +1,6 @@
 .pet-adopt-container {
   display: flex;
+  height: 100vh;
 }
 
 .pet-adopt-aside {
