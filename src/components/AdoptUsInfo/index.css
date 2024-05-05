@@ -1,0 +1,64 @@
+.adopt-us-container {
+  display: flex;
+}
+
+.adopt-us-aside {
+  flex-basis: 25%;
+}
+
+.adopt-us-aside img {
+  width: 500px;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container .overlay-image {
+  position: absolute;
+  top: 27px;
+  left: 7px;
+}
+
+.overlay-image {
+  display: flex;
+  height: 80%;
+  width: 30%;
+}
+
+.why-to-adopt-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px; 
+  align-items: center;
+}
+
+.icon-container {
+  margin-right: 20px;
+}
+
+.icon-container img {
+  width: 70px;
+}
+
+.description {
+  width: 80%;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 70px;
+  font-weight: bold;
+  color: rgb(139, 111, 57)
+}

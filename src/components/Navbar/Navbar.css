@@ -1,40 +1,64 @@
 * {
     padding: 0;
     margin: 0;
-}
-
-.pet-adoption-navbar {
-    /* background-color: green; */
+  }
+  
+  .pet-adoption-navbar {
     display: flex;
     align-items: center;
     border-bottom: 10px solid rgb(139, 111, 57);
-}
-
-.pet-adoption-navbar img {
+  }
+  
+  .pet-adoption-navbar img {
     width: 60px;
     height: 60px;
-}
-
-.pet-adoption-navbar ul {
+  }
+  
+  .pet-adoption-navbar ul {
     display: flex;
-    gap: 20px;
+    gap: 0px;
     margin-left: auto;
     margin-right: 20px;
-}
-
-.pet-adoption-navbar li {
+  }
+  
+  .pet-adoption-navbar li {
     list-style: none;
     margin-top: 18px;
-}
-
-.pet-adoption-navbar li a {
+    width: 130px;
+    text-align: center;
+    font-weight: bold;
+    color: #aaa;
+    position: relative;
+  }
+  
+  .pet-adoption-navbar li a {
+    display: block;
     color: inherit;
-    text-decoration: none; 
-}
-
-.pet-adoption-navbar li a:hover {
+    text-decoration: none;
+  }
+  
+  .pet-adoption-navbar li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .pet-adoption-navbar li a:hover::after,
+  .pet-adoption-navbar li a:focus::after {
+    width: 90%;
     background-color: rgb(139, 111, 57);
-    border-radius: 15px;
-    padding: 10px;
-    color: white;
-}
+  }
+  
+  .pet-adoption-navbar li a:hover,
+  .pet-adoption-navbar li a:focus {
+    color: rgb(139, 111, 57);
+    font-weight: bold;
+  }
+  

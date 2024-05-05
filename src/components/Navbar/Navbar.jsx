@@ -12,6 +12,7 @@ const Navbar = () => {
           alt="pet-adoption-logo"
         />
       </NavLink>
+      <span>PawDoption</span>
       <ul>
         <li>
           <NavLink to="/">Home</NavLink>
