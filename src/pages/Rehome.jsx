@@ -60,7 +60,7 @@ const Rehome = () => {
 
       const petData = { ...formData, photos: cloudinaryURLs };
 
-      await axios.post("http://localhost:5000/api/pets", petData);
+      await axios.post("https://pet-adoption-website-1.onrender.com/api/pets", petData);
     } catch (error) {
       console.error("Error uploading data:", error);
     }

@@ -21,7 +21,7 @@ const Adopt = ({
 
   const fetchData = async () => {
     try {
-      let url = "http://localhost:5000/api/pets";
+      let url = "https://pet-adoption-website-1.onrender.com/api/pets";
 
       const queryParams = [];
 

@@ -16,7 +16,7 @@ const AdoptCard = ({ cardConfig, isLoading, setPetDetail }) => {
 
   const handleOnClick = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/pets/${cardConfig._id}`);
+      const response = await axios.get(`https://pet-adoption-website-1.onrender.com/api/pets/${cardConfig._id}`);
       localStorage.setItem('petDetail', JSON.stringify(response.data));
       navigate(`/pet/${cardConfig._id}`);
     } catch (error) {
