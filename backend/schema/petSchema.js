@@ -22,7 +22,10 @@ const petSchema = new mongoose.Schema({
     default: Date.now,
   },
   location: String,
-  ownerId: String,
+  contact: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = petSchema;

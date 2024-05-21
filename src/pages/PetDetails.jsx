@@ -28,6 +28,7 @@ const PetDetails = () => {
                 {petDetail?.age ? <span>{`Age: ${petDetail.age}`}</span> : null}
                 {petDetail?.gender && <span>{`Gender: ${petDetail.gender}`}</span>}
                 {petDetail?.description && <span>{`Description: ${petDetail.description}`}</span>}
+                {petDetail?.contact && <span>{`Contact No: ${petDetail.contact}`}</span>}
               </div>
             </div>
           </div>

@@ -23,12 +23,12 @@ const Navbar = () => {
         <li>
           <NavLink to="/rehome">Rehome a Pet</NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/about">About Us</NavLink>
         </li>
         <li>
           <NavLink to="/login">Login/Sign Up</NavLink>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

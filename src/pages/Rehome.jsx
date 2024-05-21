@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import InputText from "../components/InputText";
 import SelectableDiv from "../components/SelectableDiv";
 import axios from "axios";
@@ -17,6 +19,7 @@ const Rehome = () => {
     description: "",
     photos: [],
     location: "",
+    contact: "",
   });
 
   const genderOptions = [
@@ -24,13 +27,19 @@ const Rehome = () => {
     { id: "female", value: "female", optionText: "Female" },
   ];
 
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
 
-  const handleFileChange = (e) =>
-    setFormData({ ...formData, photos: Array.from(e.target.files) });
+  const handleFileChange = (e) => {
+    const { files } = e.target;
+    setFormData({ ...formData, photos: Array.from(files) });
+  };
 
-  const handleGenderChange = (gender) => setFormData({ ...formData, gender });
+  const handleGenderChange = (gender) => {
+    setFormData({ ...formData, gender });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,48 +73,83 @@ const Rehome = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="input-container">
-          {["name", "species", "breed", "age", "description", "location"].map(
-            (field) => (
-              <InputText
-                key={field}
-                id={field}
-                labelText={
-                  field === "name"
-                    ? "Pet Name"
-                    : field === "species"
-                    ? "Species"
-                    : field === "breed"
-                    ? "Breed"
-                    : field === "age"
-                    ? "Age"
-                    : field === "description"
-                    ? "Description"
-                    : "Location"
-                }
-                value={formData[field]}
-                onChange={handleChange}
-                minlength={3}
-                maxlength={field === "age" ? 2 : 30}
-                placeholder={
-                  field === "name"
-                    ? "Enter your pet's name"
-                    : field === "species"
-                    ? "Enter the pet's species"
-                    : field === "breed"
-                    ? "Enter the pet's breed"
-                    : field === "age"
-                    ? "Enter the pet's age"
-                    : field === "description"
-                    ? "Enter the pet's description"
-                    : "Enter the pet's location"
-                }
-                type={field === "age" ? "number" : "text"}
-                min={field === "age" ? 0 : undefined}
-                max={field === "age" ? 100 : undefined}
-                required={field !== "breed"}
-              />
-            )
-          )}
+          <InputText
+            id="name"
+            labelText="Pet Name"
+            value={formData.name}
+            onChange={handleChange}
+            minlength={3}
+            maxlength={30}
+            placeholder="Enter your pet's name"
+            type="text"
+            required
+          />
+          <InputText
+            id="species"
+            labelText="Species"
+            value={formData.species}
+            onChange={handleChange}
+            minlength={3}
+            maxlength={30}
+            placeholder="Enter the pet's species"
+            type="text"
+            required
+          />
+          <InputText
+            id="breed"
+            labelText="Breed"
+            value={formData.breed}
+            onChange={handleChange}
+            minlength={3}
+            maxlength={30}
+            placeholder="Enter the pet's breed"
+            type="text"
+            required
+          />
+          <InputText
+            id="age"
+            labelText="Age"
+            value={formData.age}
+            onChange={handleChange}
+            min={0}
+            max={100}
+            placeholder="Enter the pet's age"
+            type="number"
+            required
+          />
+          <InputText
+            id="description"
+            labelText="Description"
+            value={formData.description}
+            onChange={handleChange}
+            minlength={3}
+            maxlength={30}
+            placeholder="Enter the pet's description"
+            type="text"
+            required
+          />
+          <InputText
+            id="location"
+            labelText="Location"
+            value={formData.location}
+            onChange={handleChange}
+            minlength={3}
+            maxlength={30}
+            placeholder="Enter the pet's location"
+            type="text"
+            required
+          />
+          <InputText
+            id="contact"
+            labelText="Contact"
+            value={formData.contact}
+            onChange={handleChange}
+            minlength={3}
+            maxlength={20}
+            placeholder="Enter your contact number"
+            type="text"
+            required
+          />
           <SelectableDiv
             id="gender"
             labelText="Select gender"

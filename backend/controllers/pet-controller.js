@@ -50,8 +50,8 @@ const getPetById = async (req, res) => {
 
 const createPet = async (req, res) => {
   try {
-    const { name, species, breed, age, gender, description, photos, location, ownerId } = req.body;
-    const pet = new Pet({ name, species, breed, age, gender, description, photos, location, ownerId });
+    const { name, species, breed, age, gender, description, photos, location, contact } = req.body;
+    const pet = new Pet({ name, species, breed, age, gender, description, photos, location, contact });
     await pet.save();
     res.status(201).json(pet);
   } catch (error) {
