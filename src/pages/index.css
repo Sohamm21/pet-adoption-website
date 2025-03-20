@@ -1,6 +1,5 @@
 .pet-adopt-container {
   display: flex;
-  height: 100vh;
 }
 
 .pet-adopt-aside {
@@ -8,7 +7,6 @@
 }
 
 .pet-adopt-section {
-  flex-basis: 75%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;

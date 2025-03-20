@@ -26,8 +26,6 @@
     margin-top: 18px;
     width: 130px;
     text-align: center;
-    font-weight: bold;
-    color: #aaa;
     position: relative;
   }
   
@@ -60,5 +58,6 @@
   .pet-adoption-navbar li a:focus {
     color: rgb(139, 111, 57);
     font-weight: bold;
+    transition: font-weight 0.3s linear;
   }
   
